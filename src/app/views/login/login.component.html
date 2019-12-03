@@ -4,45 +4,53 @@
             <h5 class="card-title">Login</h5>
         </div>
         <div class="card-body">
-            <form   [formGroup]="loginForm" 
+            <form   [formGroup]="loginForm"
                     (ngSubmit)="login()">
                 <div class="form-group">
-                    <input  type="email" 
+                    <input  type="email"
                             class="form-control"
                             formControlName="email"
                             placeholder="Enter email"
                             required>
-                    <div [hidden]="emailInvalid">Email is invalid.</div>
+                    <div [hidden]="emailInvalid">
+                        <span style="color: red;">Email is invalid.</span>
+                    </div>
                 </div>
                 <div    class="form-group"
                         style="margin-top: 5px;">
-                    <input  type="password" 
+                    <input  type="password"
                             class="form-control"
                             formControlName="password"
                             placeholder="Password"
                             required>
-                    <div [hidden]="passInvalid">Password is invalid.</div>
+                    <div [hidden]="passInvalid">
+                        <span style="color: red;">Password is invalid.</span>
+                    </div>
                 </div>
             </form>
         </div>
         <div class="form-group mx-auto">
-            <div class="row">
-                <div class="col-sm-7">
-                    <button type="submit"
-                            class="btn btn-primary"
-                            [disabled]="!loginForm.valid"
-                            (click)="login()">
-                        Sign in
-                    </button>
-                </div>
-                <div class="col-sm-5">
-                    <button type="button"
-                        (click)="toRegister()"
-                        class="btn btn-primary">
-                        Register
-                    </button>
-                </div>
-            </div>
+          <div class="row">
+              <div class="col-sm-7">
+                  <button type="submit"
+                          class="btn btn-primary"
+                          [disabled]="!loginForm.valid"
+                          (click)="login()">
+                      Sign in
+                  </button>
+              </div>
+              <div class="col-sm-5">
+                  <button type="button"
+                      (click)="toRegister()"
+                      class="btn btn-primary">
+                      Register
+                  </button>
+              </div>
+          </div>
+          <div  class="row"
+                [hidden]="userNoRegister">
+                <span style="color: red;">Trainer doesn´t registered</span>
+          </div>
         </div>
     </div>
 </div>

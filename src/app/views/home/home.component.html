@@ -1,2 +1,43 @@
 <app-navbar></app-navbar>
-<p>home works!</p>
+<div  class="container"
+      style="margin-top: 15px;">
+  <div class="row">
+      <form   [formGroup]="searchForm"
+              (ngSubmit)="search(search)"
+              class="mx-auto">
+              <div class="form-group">
+                <input  class="form-control"
+                        type="search"
+                        placeholder="Search Pokemon"
+                        aria-label="Search"
+                        formControlName="search">
+              </div>
+              <div class="form-group mx-auto">
+                <button class="btn btn-outline-success"
+                        type="submit"
+                        (click)="search()">
+                        Search Pokemon
+                </button>
+              </div>
+      </form>
+  </div>
+  <div class="row">
+    <div  class="col-md-4"
+          *ngFor="let pokemon of Pokemons">
+          <div class="card" style="width: 18rem;">
+            <div class="card-header">
+              <h5 class="card-title">{{pokemon.name}}</h5>
+            </div>
+            <img  class="card-img-top"
+                  src="{{pokemon.sprites.front_default}}"
+                  alt="pokemon.name">
+            <div class="card-body">
+              <div  class="row"
+                    *ngFor="let type of pokemon.types">
+                    <p class="card-text">{{type.name}}</p>
+              </div>
+            </div>
+          </div>
+    </div>
+  </div>
+</div>

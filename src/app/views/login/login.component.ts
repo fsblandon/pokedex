@@ -19,6 +19,8 @@ export class LoginComponent implements OnInit {
 
   passInvalid = true;
 
+  userNoRegister = true;
+
   constructor(
     private formBuilder: FormBuilder,
     private route: Router
@@ -33,16 +35,18 @@ export class LoginComponent implements OnInit {
 
   login() {
     if(JSON.parse(localStorage.getItem('users'))) {
+      this.userNoRegister = true;
       this.users = JSON.parse(localStorage.getItem('users'));
       const user = this.users.find(u => u.email === this.loginForm.value.email);
       if (user.email === this.loginForm.value.email) {
+        this.emailInvalid = true;
         if (user.password === this.loginForm.value.password) {
+          this.passInvalid = true;
           this.loginForm.reset();
           this.route.navigateByUrl('home');
         } else {
           this.passInvalid = false;
         }
-        
       } else {
         this.emailInvalid = false;
         /* this.loginForm.reset();
@@ -50,9 +54,9 @@ export class LoginComponent implements OnInit {
       }
     } else {
       this.loginForm.reset();
-      this.route.navigateByUrl('register');
+      this.userNoRegister = false;
+      //this.route.navigateByUrl('register');
     }
-    
   }
 
   toRegister() {

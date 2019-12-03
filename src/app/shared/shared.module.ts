@@ -6,6 +6,7 @@ import { RegisterComponent } from '../views/register/register.component';
 import { LoginComponent } from '../views/login/login.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NavbarComponent } from '../components/navbar/navbar.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -19,7 +20,8 @@ import { NavbarComponent } from '../components/navbar/navbar.component';
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   exports: [
     FormsModule,
