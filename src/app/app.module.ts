@@ -8,6 +8,7 @@ import { RegisterComponent } from './views/register/register.component';
 import { HomeComponent } from './views/home/home.component';
 import { DetailComponent } from './views/detail/detail.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { SearchPipe } from './pipes/search.pipe';
 
 @NgModule({
   declarations: [

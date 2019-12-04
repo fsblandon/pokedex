@@ -3,5 +3,22 @@
         (click)="goToHome()">
         <span>Pokedex</span>
     </a>
-    
+    <div class="ml-auto">
+        <div    class="row"
+                style="width: 400px;">
+            <div    class="col-md-2"
+                    *ngIf="isDetail">
+                <a  class="nav-link color"
+                    (click)="goToHome()">
+                    Home
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a  class="nav-link color"
+                    (click)="goToLogin()">
+                    Sign out
+                </a>
+            </div>
+        </div>
+    </div>
 </div>

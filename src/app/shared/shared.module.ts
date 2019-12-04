@@ -7,6 +7,7 @@ import { LoginComponent } from '../views/login/login.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { NavbarComponent } from '../components/navbar/navbar.component';
 import { HttpClientModule } from '@angular/common/http';
+import { SearchPipe } from '../pipes/search.pipe';
 
 
 
@@ -16,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     RegisterComponent,
     LoginComponent,
-    NavbarComponent
+    NavbarComponent,
+    SearchPipe
   ],
   imports: [
     CommonModule,

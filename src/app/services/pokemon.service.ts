@@ -17,7 +17,7 @@ export class PokemonService {
 
   getPokemons(size: number): Observable<any[]> {
     return this.httpClient.get<any[]>(
-      this.URL + 'pokemon?offset=' + size + '&limit=' + size
+      this.URL + 'pokemon?offset=0&limit=' + size
     );
   }
 

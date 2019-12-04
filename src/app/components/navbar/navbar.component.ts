@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-navbar',
@@ -8,15 +8,26 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
+  isDetail = false;
+
   constructor(
     private route: Router
   ) { }
 
   ngOnInit() {
+    if (this.route.url.includes('detail', 0)) {
+      this.isDetail = true;
+    } else {
+      this.isDetail = false;
+    }
   }
 
   goToHome() {
     this.route.navigateByUrl('home');
+  }
+
+  goToLogin() {
+    this.route.navigateByUrl('login');
   }
 
 }

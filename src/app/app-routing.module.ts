@@ -16,7 +16,7 @@ const routes: Routes = [
     loadChildren: () => import('../app/views/register/register.module').then(m => m.RegisterModule)
   },
   {
-    path: 'home',
+    path: 'detail',
     loadChildren: () => import('../app/views/detail/detail.module').then(m => m.DetailModule)
   },
   {

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { PokemonService } from 'src/app/services/pokemon.service';
 import { Pokemon } from 'src/app/models/pokemon';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -14,11 +15,16 @@ export class HomeComponent implements OnInit {
   Pokemons: Pokemon[] = [];
   numberCards: number;
 
-  searchForm: FormGroup
+  searchForm: FormGroup;
+
+  item: string;
+
+  exist = true;
 
   constructor(
     private pokemonService: PokemonService,
-    private formBuilder: FormBuilder
+    private formBuilder: FormBuilder,
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -46,17 +52,7 @@ export class HomeComponent implements OnInit {
     });
   }
 
-  search() {
-    console.log(this.searchForm.value.search);
-    this.Pokemons = [];
-    this.pokemonService.getPokemon(this.searchForm.value.search).subscribe(
-      (pok) => {
-        this.Pokemons.push(pok);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+  goToDetails(event: any) {
+    this.router.navigate(['/detail', event.target.id]);
   }
-
 }
